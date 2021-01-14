@@ -32,9 +32,7 @@ public class Radix{
 
 		while(data.size()>0){
 			int current = data.get(0);
-			if (maxdigits <length(current)){
-        maxdigits=current;
-      }
+			maxdigits = Integer.max(length(current), maxdigits);
 			buckets[nth(current, 0)].add(current);
 			data.remove(0);
 		}
@@ -46,7 +44,7 @@ public class Radix{
         buckets[j] = new SortableLinkedList();
       }
 
-			while(data.size()>0){
+			while(data.size() >0){
 				int current = data.get(0);
 				buckets[nth(current, i)].add(current);
 				data.remove(0);
