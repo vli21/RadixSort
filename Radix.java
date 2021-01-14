@@ -23,10 +23,37 @@ public class Radix{
   }
 
   public static void radixSortSimple(SortableLinkedList data){
-    SortableLinkedList[] buckets = new SortableLinkedList[10];
+    int maxdigits = 0;
+    int len=data.size();
+
+		SortableLinkedList[] buckets = new SortableLinkedList[10];
 		for (int i = 0; i < 10; i++){
       buckets[i] = new SortableLinkedList();
     }
+
+		for(int i=0;i<len;i++) {
+			int current = data.get(0);
+			if (maxdigits <length(current)){
+        maxdigits=current;
+      }
+			buckets[nth(current, 0)].add(current);
+			data.remove(0);
+		}
+		merge(data, buckets);
+
+		for (int i = 1; i < maxdigit; i++) {
+			buckets = new SortableLinkedList[10];
+			for (int j = 0; j < 10; j++){
+        buckets[j] = new SortableLinkedList();
+      }
+
+			for (int z=0;z<len;z++) {
+				int current = data.get(0);
+				buckets[nth(current, i)].add(current);
+				data.remove(0);
+			}
+			merge(data, buckets);
+		}
   }
   public static void radixSort(SortableLinkedList data){
 
