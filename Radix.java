@@ -24,14 +24,13 @@ public class Radix{
 
   public static void radixSortSimple(SortableLinkedList data){
     int maxdigits = 0;
-    int len=data.size();
 
 		SortableLinkedList[] buckets = new SortableLinkedList[10];
 		for (int i = 0; i < 10; i++){
       buckets[i] = new SortableLinkedList();
     }
 
-		for(int i=0;i<len;i++) {
+		while(data.size()>0){
 			int current = data.get(0);
 			if (maxdigits <length(current)){
         maxdigits=current;
@@ -47,7 +46,7 @@ public class Radix{
         buckets[j] = new SortableLinkedList();
       }
 
-			for (int z=0;z<len;z++) {
+			while(data.size()>0){
 				int current = data.get(0);
 				buckets[nth(current, i)].add(current);
 				data.remove(0);
