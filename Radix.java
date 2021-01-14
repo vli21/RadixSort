@@ -41,7 +41,7 @@ public class Radix{
 		}
 		merge(data, buckets);
 
-		for (int i = 1; i < maxdigit; i++) {
+		for (int i = 1; i < maxdigits; i++) {
 			buckets = new SortableLinkedList[10];
 			for (int j = 0; j < 10; j++){
         buckets[j] = new SortableLinkedList();
